@@ -1,6 +1,10 @@
 import { track, trigger } from './effect'
 
-export function ref(raw: any) {
+export interface Ref<T = any> {
+  value: T
+}
+
+export function ref<T>(raw?: T): Ref<T> {
   let value = raw
 
   const r = {
